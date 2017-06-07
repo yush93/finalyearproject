@@ -358,11 +358,6 @@ public class Camera2VideoImageActivity extends AppCompatActivity {
 
     File imageFile;
     private File createImageFileName() throws IOException {
-        //String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        //String prepend = "IMAGE_" + timestamp + "_";
-        //String prepend = "image";
-//        File imageFile = File.createTempFile(prepend, "img.jpg", imageFolder);
-
         imageFile = new File(imageFolder, "myImage.jpg");
         imageFile.createNewFile();
         imageFileName = imageFile.getAbsolutePath();
@@ -375,10 +370,8 @@ public class Camera2VideoImageActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
-                //What to do when capture button is pressed
                 try {
                     createImageFileName();
-                    //What to do when capture button is pressed
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -391,7 +384,6 @@ public class Camera2VideoImageActivity extends AppCompatActivity {
         } else {
             try {
                 createImageFileName();
-                //What to do when capture button is pressed
             } catch (IOException e) {
                 e.printStackTrace();
             }
